@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: #c45c26;
+  --color-primary-light: #d4784a;
+  --color-primary-dark: #a04a1e;
+  --color-secondary: #f5e6dc;
+  --color-accent: #e8b092;
+  --color-warm: #f9f3ee;
+  --color-cream: #fefbf8;
+  --color-terracotta: #cd6b45;
+  --color-brown: #8b5a3c;
+  --color-gold: #c9a86c;
+
+  --font-serif: Playfair Display, Georgia, serif;
+  --font-sans: Inter, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-cream);
+    color: #2d2d2d;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-primary-dark hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border-2 border-primary text-primary px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-primary hover:text-white;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 px-4 md:px-8 lg:px-16;
+  }
+
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-medium leading-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-medium;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-medium;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:shadow-xl hover:-translate-y-2;
+  }
+
+  .image-rounded {
+    @apply rounded-3xl overflow-hidden;
+  }
+
+  .image-oval {
+    @apply overflow-hidden;
+    border-radius: 50% / 40%;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-warm {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(180deg, var(--color-warm) 0%, var(--color-secondary) 100%);
+  }
 }
