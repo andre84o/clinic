@@ -95,13 +95,13 @@ export default function Contact() {
                   <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Clock className="w-6 h-6 text-primary" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <div className="font-medium text-gray-900 mb-2">Öppettider</div>
                     <div className="space-y-1">
                       {content.openingHours.map((item) => (
-                        <div key={item.day} className="flex justify-between text-sm">
+                        <div key={item.day} className="grid grid-cols-2 gap-4 text-sm">
                           <span className="text-gray-600">{item.day}</span>
-                          <span className="text-gray-900 font-medium">{item.hours}</span>
+                          <span className="text-gray-900 font-medium text-right">{item.hours}</span>
                         </div>
                       ))}
                     </div>

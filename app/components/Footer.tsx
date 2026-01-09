@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Instagram, Facebook, Twitter } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react';
 import { useCMSStore } from '@/lib/cms-store';
 
 export default function Footer() {
@@ -14,9 +14,8 @@ export default function Footer() {
         return <Instagram className="w-5 h-5" />;
       case 'facebook':
         return <Facebook className="w-5 h-5" />;
-      case 'tiktok':
-      case 'twitter':
-        return <Twitter className="w-5 h-5" />;
+      case 'x':
+        return <Image src="/images/logo-black.png" alt="X" width={20} height={20} className="w-5 h-5 invert" />;
       default:
         return null;
     }
@@ -24,7 +23,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 xl:px-16 2xl:px-24 py-16 xl:mx-0 xl:max-w-none">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -117,7 +116,15 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">{content.footerText}</p>
+          <div>
+            <p className="text-gray-400 text-sm">{content.footerText}</p>
+            <p className="text-gray-500 text-xs font-light mt-1">
+              Design & development by{' '}
+              <a href="https://www.intenzze.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                Intenzze
+              </a>
+            </p>
+          </div>
           <div className="flex gap-6 text-sm text-gray-400">
             <a href="#" className="hover:text-white transition-colors">
               Integritetspolicy

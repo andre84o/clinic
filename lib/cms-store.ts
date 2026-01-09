@@ -204,7 +204,7 @@ const defaultContent: SiteContent = {
   contactSubtitle: "Ta första steget mot en strålande hud",
   address: "Strandvägen 42, 114 56 Stockholm",
   phone: "+46 8 123 45 67",
-  email: "info@lumiere-clinic.se",
+  email: "info@intenzze.com",
   openingHours: [
     { day: "Måndag - Fredag", hours: "09:00 - 19:00" },
     { day: "Lördag", hours: "10:00 - 17:00" },
@@ -213,9 +213,9 @@ const defaultContent: SiteContent = {
 
   footerText: "© 2025 Lumière. Alla rättigheter förbehållna.",
   socialLinks: [
-    { platform: "Instagram", url: "https://instagram.com" },
-    { platform: "Facebook", url: "https://facebook.com" },
-    { platform: "TikTok", url: "https://tiktok.com" }
+    { platform: "Instagram", url: "https://www.instagram.com/intenzzewebbstudio" },
+    { platform: "Facebook", url: "https://www.facebook.com/intenzzeweb" },
+    { platform: "X", url: "https://x.com" }
   ]
 };
 

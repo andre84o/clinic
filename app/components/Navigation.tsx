@@ -1,11 +1,12 @@
-'use client';
+// Fil: components/Navigation.tsx
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Menu, X, Search, Calendar } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useCMSStore } from '@/lib/cms-store';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import { Menu, X, Search, Calendar } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useCMSStore } from "@/lib/cms-store";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,36 +17,39 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { label: 'Hem', href: '#' },
-    { label: 'Behandlingar', href: '#services' },
-    { label: 'Om oss', href: '#about' },
-    { label: 'Recensioner', href: '#testimonials' },
-    { label: 'Kontakt', href: '#contact' },
+    { label: "Hem", href: "#" },
+    { label: "Behandlingar", href: "#services" },
+    { label: "Om oss", href: "#about" },
+    { label: "Recensioner", href: "#testimonials" },
+    { label: "Kontakt", href: "#contact" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm py-3'
-          : 'bg-transparent py-5'
-      }`}
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+      } h-16 md:h-20`} // ✅ Låser headerns höjd så den inte påverkas av en större logga
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 xl:px-16 2xl:px-24 h-full xl:mx-0 xl:max-w-none">
+        <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link
+            href="/"
+            className="relative flex items-center h-full w-[200px]" // ✅ Ger loggan en “plats” men låter bilden sticka ut
+          >
             <Image
               src="/images/lumiere.png"
               alt={content.siteName}
-              width={140}
-              height={50}
-              className="h-10 md:h-12 w-auto"
+              width={240}
+              height={240}
+              className={`absolute left-0 top-1/2 -translate-y-1/2 w-auto ${
+                isScrolled ? "h-20 md:h-24" : "h-24 md:h-28"
+              }`} // ✅ Gör loggan större utan att headern blir högre
               priority
             />
           </Link>
@@ -95,7 +99,7 @@ export default function Navigation() {
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-gray-100"
           >

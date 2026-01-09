@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Shield, Heart, Award } from 'lucide-react';
 import { useCMSStore } from '@/lib/cms-store';
 
 export default function Hero() {
@@ -50,19 +50,22 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Stats */}
-            <div className="mt-12 flex gap-8 flex-wrap">
-              {content.aboutStats.slice(0, 3).map((stat, index) => (
+            {/* USPs */}
+            <div className="mt-12 flex gap-6 flex-wrap">
+              {[
+                { icon: Shield, text: 'Certifierade behandlare' },
+                { icon: Heart, text: 'Personlig rådgivning' },
+                { icon: Award, text: 'Premiumprodukter' },
+              ].map((usp, index) => (
                 <motion.div
-                  key={stat.label}
+                  key={usp.text}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  className="flex items-center gap-2"
                 >
-                  <div className="text-3xl font-serif font-medium text-primary">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-gray-500">{stat.label}</div>
+                  <usp.icon className="w-5 h-5 text-primary" />
+                  <span className="text-sm text-gray-600">{usp.text}</span>
                 </motion.div>
               ))}
             </div>
