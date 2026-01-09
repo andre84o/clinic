@@ -91,22 +91,24 @@ export default function Hero() {
               </div>
 
               {/* Floating Card */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-primary" />
+              {content.showHeroBadge && (
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Sparkles className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-gray-900">{content.heroBadgeTitle}</div>
+                      <div className="text-sm text-gray-500">{content.heroBadgeText}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-medium text-gray-900">Boka idag</div>
-                    <div className="text-sm text-gray-500">20% rabatt</div>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              )}
 
               {/* Decorative Elements */}
               <div className="absolute -top-6 -right-6 w-24 h-24 border-2 border-primary/30 rounded-full" />

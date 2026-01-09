@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   title: "Lumière | Skönhetsklinik Stockholm",
   description: "Professionell hudvård och skönhetsbehandlingar i Stockholm. Boka din tid för ansiktsbehandling, kemisk peeling, massage och mer.",
   keywords: "skönhetsklinik, hudvård, ansiktsbehandling, Stockholm, spa, massage, kemisk peeling",
+  icons: {
+    icon: "/logofavi.png",
+    apple: "/logofavi.png",
+  },
 };
 
 export default function RootLayout({

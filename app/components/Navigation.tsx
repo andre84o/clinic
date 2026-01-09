@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Search, Calendar } from "lucide-react";
+import { Menu, X, Search, Calendar, Settings } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCMSStore } from "@/lib/cms-store";
 import Link from "next/link";
@@ -66,13 +66,20 @@ export default function Navigation() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
+            <button className="p-2 hover:bg-secondary/50 rounded-full transition-colors">
+              <Search className="w-5 h-5 text-gray-700" />
+            </button>
           </div>
 
           {/* Actions */}
           <div className="flex items-center gap-3">
-            <button className="p-2 hover:bg-secondary/50 rounded-full transition-colors">
-              <Search className="w-5 h-5 text-gray-700" />
-            </button>
+            <Link
+              href="/admin"
+              className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors"
+            >
+              <Settings className="w-4 h-4" />
+              Admin
+            </Link>
             <a
               href="#contact"
               className="hidden sm:flex items-center gap-2 btn-primary text-sm"
@@ -122,6 +129,14 @@ export default function Navigation() {
                 <Calendar className="w-4 h-4" />
                 Boka tid
               </a>
+              <Link
+                href="/admin"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-2 w-full py-3 bg-gray-900 text-white font-medium rounded-xl hover:bg-gray-800 transition-colors"
+              >
+                <Settings className="w-4 h-4" />
+                Admin
+              </Link>
             </div>
           </motion.div>
         )}

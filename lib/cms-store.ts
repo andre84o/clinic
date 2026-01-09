@@ -33,6 +33,9 @@ export interface SiteContent {
   heroSubtitle: string;
   heroImage: string;
   heroCTA: string;
+  showHeroBadge: boolean;
+  heroBadgeTitle: string;
+  heroBadgeText: string;
 
   // About Section
   aboutTitle: string;
@@ -79,6 +82,9 @@ const defaultContent: SiteContent = {
   heroSubtitle: "Vi kombinerar vetenskap och natur för att ge dig den bästa hudvården. Välkommen till en oas av avkoppling och förnyelse.",
   heroImage: "/images/portrait-beautiful-woman-with-clear-skin-posing-with-baby-s-breath-flowers.jpg",
   heroCTA: "Boka tid",
+  showHeroBadge: true,
+  heroBadgeTitle: "Boka idag",
+  heroBadgeText: "20% rabatt",
 
   aboutTitle: "Om Lumière",
   aboutText: "Med över 10 års erfarenhet inom skönhetsbranschen erbjuder vi skräddarsydda behandlingar för att framhäva din naturliga skönhet. Vårt team av certifierade hudterapeuter använder de senaste teknikerna och högkvalitativa produkter för att ge dig bästa möjliga resultat.",

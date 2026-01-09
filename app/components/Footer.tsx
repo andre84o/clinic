@@ -82,17 +82,34 @@ export default function Footer() {
               <div className="mt-6">
                 <p className="text-sm text-gray-500 mb-3">Följ oss</p>
                 <div className="flex gap-3">
-                  {content.socialLinks.map((link) => (
-                    <a
-                      key={link.platform}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300"
-                    >
-                      {getSocialIcon(link.platform)}
-                    </a>
-                  ))}
+                  {content.socialLinks.map((link) => {
+                    const isX = link.platform.toLowerCase() === 'x';
+
+                    if (isX) {
+                      return (
+                        <div
+                          key={link.platform}
+                          role="img"
+                          aria-label="X"
+                          className="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center"
+                        >
+                          {getSocialIcon(link.platform)}
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <a
+                        key={link.platform}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300"
+                      >
+                        {getSocialIcon(link.platform)}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </div>
